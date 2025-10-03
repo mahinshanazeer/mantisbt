@@ -1,0 +1,21 @@
+Database type: MySQLi
+Hostname: mysql
+Database name: bugtracker
+Database username: mantisbt
+Database password: mantisbt
+Admin username: mantisbt
+Admin password: mantisbt
+
+after installation:
+-----------------
+Set MANTIS_ENABLE_ADMIN=0 in docker-compose.yml
+
+Add $g_crypto_master_salt into config/config_inc.php:
+~~
+<?php
+$g_crypto_master_salt = 'replace-this-with-openssl-rand-base64-32';
+~~
+
+Generate salt:
+------------------
+openssl rand -base64 32
